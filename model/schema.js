@@ -13,7 +13,7 @@ export const usersTable = pgTable("users", {
 
 export const urlTable = pgTable('url', {
   id: uuid().primaryKey().defaultRandom(),
-  shortCode: varchar({ length: 50 }).notNull().unique(),
-  targetURL: varchar({ length: 2000 }).notNull(),
+  shortCode: varchar("short_code", { length: 50 }).notNull().unique(),
+  targetURL: varchar("target_url",{ length: 2000 }).notNull(),
   userid: uuid().references(() => usersTable.id).notNull()
 })

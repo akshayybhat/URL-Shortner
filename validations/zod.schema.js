@@ -16,3 +16,10 @@ export const loginSchema = () => {
     password: z.string().min(5)
   });
 }
+
+export const shortenSchema = () => {
+  return z.object({
+    targetURL: z.url(),
+    shortCode: z.string().optional()
+  })
+}
